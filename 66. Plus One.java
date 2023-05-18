@@ -1,30 +1,15 @@
 class Solution {
     public int[] plusOne(int[] digits) {
-        int sum=0, carry=0;
-        int i=digits.length-1;
-        sum=1+digits[i];
-        int value=(sum+carry)%10;
-        carry=(sum+carry)/10;
-        int[] res = new int[digits.length+1];
-        res[i+1]=value;
-        i=digits.length-2;
-        while(i>=0) {
-            sum=digits[i];
-            value=(sum+carry)%10;
-            carry=(sum+carry)/10; 
-            res[i+1]=value;
-            i--;
+        int length = digits.length;
+        for(int i=length-1; i>=0; i--) {
+            if(digits[i]<9) {
+                digits[i]=digits[i]+1;
+                return digits;
+            }
+            digits[i]=0;
         }
-        if(carry!=0) {
-            res[0]=carry;
-            return res;
-        }
-        int[] nums = new int[res.length-1];
-        int j=0;
-        while(j<nums.length) {
-            nums[j]=res[j+1];
-            j++;
-        }
-        return nums;
-    }   
+        int[] new_number = new int[length+1];
+        new_number[0]=1;
+        return new_number;
+    }
 }
