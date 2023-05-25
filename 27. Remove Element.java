@@ -10,6 +10,6 @@ class Solution {
                 i++;
             }
         }
-        return n ;
+        return n;
     }
 }
