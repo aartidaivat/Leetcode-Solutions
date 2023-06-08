@@ -5,8 +5,8 @@ class Solution {
         return res;
     }
   
-    public void backtrack(int[] nums, List<Integer> list, List<List<Integer>> res, int index) {
-        for(int i=index; i<nums.length; i++) {
+    public void backtrack(int[] nums, List<Integer> list, List<List<Integer>> res, int start) {
+        for(int i=start; i<nums.length; i++) {
             list.add(nums[i]);
             backtrack(nums,list,res,i+1);
             list.remove(list.size()-1);
